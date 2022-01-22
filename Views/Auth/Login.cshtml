@@ -1,0 +1,176 @@
+﻿@model string
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex-grow: 1;
+                min-width: 940px;
+                min-height: 385px;
+            }
+
+            .login-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 20px;
+                width: 100%;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                align-items: center;
+            }
+
+            .login {
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                align-items: center;
+                width: calc(50% - 40px);
+            }
+
+            .image {
+                width: calc(50% - 40px);
+                height: 250px;
+                background-image: url(@Url.Content("~/Images/login.png"));
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 120px 0px;
+            }
+
+            .name {
+                font-size: 35px;
+                font-style: normal oblique;
+                left: 47%;
+                color: #fff;
+                text-align: center;
+            }
+
+            .vl {
+                border-left: 2px solid #fff;
+                height: 300px;
+                align-self: center;
+                margin: 0 80px;
+            }
+
+            .btn {
+                outline: none;
+                color: black;
+                font-family: Roboto;
+                font-style: normal oblique;
+                margin-bottom: 5px;
+                border-radius: 15px;
+                border: 1px solid #fff;
+                width: 60%;
+                padding: 7px 0;
+                display: flex;
+                cursor: pointer;
+                color: black;
+                align-items: center;
+                justify-content: center;
+                max-width: 100%;
+            }
+
+            .input-box {
+                width: 60%;
+                border: 0.5px solid rgba(255, 255, 255, 0.5);
+                border-radius: 15px;
+                padding-top: 7px;
+                padding-bottom: 5px;
+                text-indent: 5px;
+            }
+
+            .input-box input {
+                width: 60%;
+                border: none;
+                outline: none;
+                background:transparent;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .text {
+                opacity: 1;
+                font-family: Roboto;
+                font-size: 15px;
+                font-weight: 100;
+                font-stretch: normal;
+                font-style: normal oblique;
+                line-height: normal;
+                letter-spacing: normal;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .error {
+                color: red;
+            }
+
+            .fas {
+                color:aqua;
+                margin-right: 10px;
+            }
+    </style>
+
+    <script src="~/Scripts/script.js"></script>
+</head>
+<body   style="color:#cda45e;background-color:black" >
+    <div class="wrapper">
+        <div class="name">
+            
+        </div>
+
+        <div class="login-wrapper">
+            <div class="image"></div>
+
+            <div class="vl"></div>
+
+            <div class="login">
+
+                <fieldset style="width: 100%">
+                    <form onsubmit="checkLogin()" action="../Auth/DoLogin" method="post">
+                        <div class="input-box">
+                            <i class="fas fa-user icon"></i>
+                            <input type="text"
+                                   required
+                                   name="name"
+                                   placeholder="Username" />
+                        </div>
+                        <br />
+
+                        <div class="input-box">
+                            <i class="fas fa-key"></i>
+                            <input type="password"
+                                   required
+                                   name="password"
+                                   placeholder="Password" />
+                        </div>
+                        <br />
+                        <br />
+                        <input type="submit" class="btn" value="LOGIN" />
+                        *
+                    </form>
+                </fieldset>
+
+
+                <a href="" class="text">
+                    Forgot your Password?
+                </a>
+
+                <br />
+
+                <p1 class="text">Not a member?</p1>
+
+                <a href="/Auth/SignUp" class="text">
+                Sign Up
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

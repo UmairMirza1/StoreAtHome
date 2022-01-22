@@ -1,0 +1,230 @@
+﻿@model string
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/script.js"></script>
+
+    <style>
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex-grow: 1;
+                min-width: 940px;
+                min-height: 385px;
+            }
+
+            .login-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin-top: 25px;
+            }
+
+            .image {
+                width: calc(50% - 40px);
+                height: 250px;
+                background-image: url(@Url.Content("~/images/store.png"));
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 120px 0px;
+                display: flex;
+                position: relative;
+            }
+
+            .name {
+                font-size: 35px;
+                font-style: normal oblique;
+                color: #fff;
+                text-align: center;
+                position: relative;
+            }
+
+            .login {
+                width: calc(50% - 40px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .vl {
+                border-left: 2px solid #fff;
+                height: 310px;
+                align-self: center;
+                margin: 0 80px;
+            }
+
+            .btn {
+                outline: none;
+                color: black;
+                font-family: Roboto;
+                font-style: normal oblique;
+                margin-bottom: 5px;
+                border-radius: 15px;
+                border: 1px solid #fff;
+                width: 65%;
+                padding: 7px 0;
+                cursor: pointer;
+                color: black;
+                max-width: 100% !important;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            fieldset {
+                width: 100%;
+            }
+
+            .input-box {
+                width: 65%;
+                border: 0.5px solid rgba(255, 255, 255, 0.5);
+                border-radius: 15px;
+                padding-top: 7px;
+                padding-bottom: 5px;
+                text-indent: 8px;
+                margin-bottom: 5px;
+            }
+
+            .input-box input {
+                width: 65%;
+                border: none;
+                outline: none;
+                background: transparent;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .fnam {
+                position: relative;
+                border: 0.5px solid rgba(255, 255, 255, 0.5);
+                border-radius: 15px;
+                width: 30%;
+                padding-top: 7px;
+                padding-bottom: 5px;
+                text-indent: 8px;
+                outline: none;
+                background: transparent;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .lnam {
+                position: relative;
+                border: 0.5px solid rgba(255, 255, 255, 0.5);
+                border-radius: 15px;
+                width: 32%;
+                padding-top: 7px;
+                padding-bottom: 5px;
+                text-indent: 8px;
+                outline: none;
+                background: transparent;
+                margin-left: 10px;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .text {
+                opacity: 1;
+                font-family: Roboto;
+                font-size: 15px;
+                font-weight: 100;
+                font-stretch: normal;
+                font-style: normal oblique;
+                line-height: normal;
+                letter-spacing: normal;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .error {
+                color: red;
+            }
+    </style>
+
+
+
+
+
+
+
+</head>
+<body style="color:#cda45e;background-color:black; ">
+
+    <div class="wrapper">
+        <div class="name">
+            <b>StoreAtHome</b>
+        </div>
+
+        <div class="login-wrapper">
+            <div class="image">
+
+            </div>
+
+            <div class="vl"></div>
+            <div class="login">
+                <fieldset style="display:flex">
+                    <form onsubmit="checkSignUp()" id="signUpForm" action="../Auth/DoSignUp" method="post">
+                        <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 5px;">
+                            <input class="fnam"
+                                   type="text"
+                                   required
+                                   name="Fname"
+                                   placeholder="First Name" />
+
+                            <input class="lnam"
+                                   type="text"
+                                   required
+                                   name="Lname"
+                                   placeholder="Last Name" />
+                        </div>
+                        <div class="input-box">
+                            <input type="email"
+                                   required
+                                   name="email"
+                                   placeholder="Email" />
+                        </div>
+                        <br />
+                        <div class="input-box">
+                            <input type="password"
+                                   required
+                                   name="password"
+                                   placeholder="Password" />
+                        </div>
+                        <div class="input-box">
+                            <input type="password"
+                                   required
+                                   name="cpassword"
+                                   placeholder="Confirm Password" />
+                        </div>
+                        <br />
+                        <input type="submit" class="btn" value="SIGNUP" />
+                    </form>
+                </fieldset>
+                @{ if (Model != null && Model.Length > 0)
+                    {
+        @:<span class="error">@Model</span>
+    } }
+                <p1 class="text">Already a Member?</p1>
+                <a href="/Authorization/SignIn" class="text">
+                    Login
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
